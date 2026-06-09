@@ -75,17 +75,24 @@ const i18n = {
     'player.haaland.footer2': 'VALUE: €180M',
     'ch2.num': 'CHAPTER II',
     'ch2.title': 'THE LAST DANCE',
+    'legends.title': 'TWO LEGENDS.<br>ONE LAST WORLD STAGE.',
+    'legends.text': '<p>For nearly twenty years, football lived through an era unlike any other.</p><p>Two icons.</p><p>Two paths.</p><p>Two definitions of greatness.</p><p>One inspired through genius.</p><p>The other through relentless determination.</p><p>Together, they elevated the sport to heights never seen before.</p><p>Stadiums erupted.</p><p>Generations were inspired.</p><p>History was rewritten.</p><p>As the lights shine on football\'s biggest tournament once again, the world watches not only for goals and victories.</p><p>But for one final opportunity to witness greatness.</p><p>Before the curtain falls on an unforgettable era.</p>',
+    'legends.final': 'AN ERA THAT CHANGED FOOTBALL FOREVER',
     'messi.country': 'ARGENTINA',
     'messi.name': 'LIONEL',
     'messi.surname': 'MESSI',
-    'messi.desc': 'The defending world champion in 2022. Will this be his absolute final step in football history?',
+    'messi.desc': 'Some players win matches. Some players win trophies. Few redefine the game itself. For more than two decades, Lionel Messi transformed football into art.',
+    'messi.subtitle': 'THE FINAL MASTERPIECE',
+    'messi.bio': '<p>Some players win matches.</p><p>Some players win trophies.</p><p>Few redefine the game itself.</p><p>For more than two decades, Lionel Messi transformed football into art, turning impossible moments into timeless memories.</p><p>As the world gathers once again for football\'s greatest stage, every touch, every pass, and every goal carries the weight of a legacy that inspired generations.</p><p>This is more than another World Cup.</p><p>It may be the final chapter of the greatest story ever told on a football pitch.</p>',
     'messi.stat1': 'BALLONS D\'OR',
     'messi.stat2': 'WORLD CUPS',
     'messi.stat3': 'GOALS',
     'ronaldo.country': 'PORTUGAL',
     'ronaldo.name': 'CRISTIANO',
     'ronaldo.surname': 'RONALDO',
-    'ronaldo.desc': 'The ultimate goal-scoring titan. Striving to complete his legacy on the grandest stage of all.',
+    'ronaldo.desc': 'Records were never the destination. They were simply milestones along the way. Through relentless ambition and unmatched discipline, Cristiano Ronaldo became one of the most iconic athletes in sporting history.',
+    'ronaldo.subtitle': 'BEYOND GREATNESS',
+    'ronaldo.bio': '<p>Records were never the destination.</p><p>They were simply milestones along the way.</p><p>Through relentless ambition, unmatched discipline, and an unbreakable desire to win, Cristiano Ronaldo became one of the most iconic athletes in sporting history.</p><p>Every challenge was answered.</p><p>Every doubt became fuel.</p><p>Now, as another World Cup approaches, the journey continues.</p><p>Not as a promise of what can be achieved.</p><p>But as proof of what happens when greatness refuses to stop.</p>',
     'ronaldo.stat1': 'BALLONS D\'OR',
     'ronaldo.stat2': 'CHAMPIONS LEAGUE',
     'ronaldo.stat3': 'GOALS',
@@ -201,17 +208,24 @@ const i18n = {
     'player.haaland.footer2': 'VALOR: €180M',
     'ch2.num': 'CAPÍTULO II',
     'ch2.title': 'A ÚLTIMA DANÇA',
+    'legends.title': 'DUAS LENDAS.<br>UM ÚLTIMO PALCO MUNDIAL.',
+    'legends.text': '<p>Por quase vinte anos, o futebol viveu uma era diferente de qualquer outra.</p><p>Dois ícones.</p><p>Dois caminhos.</p><p>Duas definições de grandeza.</p><p>Um inspirado pela genialidade.</p><p>O outro pela determinação implacável.</p><p>Juntos, eles elevaram o esporte a patamares nunca antes vistos.</p><p>Estádios explodiram.</p><p>Gerações foram inspiradas.</p><p>A história foi reescrita.</p><p>Quando as luzes se acendem para o maior torneio de futebol mais uma vez, o mundo assiste não apenas a gols e vitórias.</p><p>Mas a uma última oportunidade de testemunhar a grandeza.</p><p>Antes que a cortina se feche sobre uma era inesquecível.</p>',
+    'legends.final': 'UMA ERA QUE MUDOU O FUTEBOL PARA SEMPRE',
     'messi.country': 'ARGENTINA',
     'messi.name': 'LIONEL',
     'messi.surname': 'MESSI',
-    'messi.desc': 'O atual campeão mundial de 2022. Será este seu passo final absoluto na história do futebol?',
+    'messi.desc': 'Alguns jogadores vencem partidas. Alguns jogadores vencem troféus. Poucos redefinem o próprio jogo. Por mais de duas décadas, Lionel Messi transformou o futebol em arte.',
+    'messi.subtitle': 'A OBRA-PRIMA FINAL',
+    'messi.bio': '<p>Alguns jogadores vencem partidas.</p><p>Alguns jogadores vencem troféus.</p><p>Poucos redefinem o próprio jogo.</p><p>Por mais de duas décadas, Lionel Messi transformou o futebol em arte, transformando momentos impossíveis em memórias atemporais.</p><p>Enquanto o mundo se reúne mais uma vez para o maior palco do futebol, cada toque, cada passe e cada gol carregam o peso de um legado que inspirou gerações.</p><p>Isto é mais do que outra Copa do Mundo.</p><p>Pode ser o capítulo final da maior história já contada em um campo de futebol.</p>',
     'messi.stat1': 'BALLONS D\'OR',
     'messi.stat2': 'COPAS DO MUNDO',
     'messi.stat3': 'GOLS',
     'ronaldo.country': 'PORTUGAL',
     'ronaldo.name': 'CRISTIANO',
     'ronaldo.surname': 'RONALDO',
-    'ronaldo.desc': 'O titã definitivo dos gols. Lutando para completar seu legado no maior palco de todos.',
+    'ronaldo.desc': 'Recordes nunca foram o destino. Foram apenas marcos ao longo do caminho. Com ambição implacável e disciplina incomparável, Cristiano Ronaldo tornou-se um dos atletas mais icônicos da história do esporte.',
+    'ronaldo.subtitle': 'ALÉM DA GRANDEZA',
+    'ronaldo.bio': '<p>Recordes nunca foram o destino.</p><p>Foram apenas marcos ao longo do caminho.</p><p>Com ambição implacável, disciplina incomparável e uma vontade inabalável de vencer, Cristiano Ronaldo tornou-se um dos atletas mais icônicos da história do esporte.</p><p>Cada desafio foi respondido.</p><p>Cada dúvida virou combustível.</p><p>Agora, enquanto outra Copa do Mundo se aproxima, a jornada continua.</p><p>Não como uma promessa do que pode ser alcançado.</p><p>Mas como a prova do que acontece quando a grandeza se recusa a parar.</p>',
     'ronaldo.stat1': 'BALLONS D\'OR',
     'ronaldo.stat2': 'LIGA DOS CAMPEÕES',
     'ronaldo.stat3': 'GOLS',
@@ -311,6 +325,28 @@ function applyTranslations() {
     if (heroTitle.querySelector('.word')) {
       splitTextIntoSpans(heroTitle);
     }
+  }
+
+  /* ── Legends title (re-split after data-i18n-html overwrites spans) ── */
+  const legendsTitle = document.getElementById('legendsTitle');
+  if (legendsTitle && legendsTitle.hasAttribute('data-split')) {
+    const html = legendsTitle.innerHTML.replace(/<br\s*\/?>/gi, '<BR>');
+    const lines = html.split('<BR>');
+    let result = '';
+    lines.forEach((line, li) => {
+      if (li > 0) result += '<br>';
+      const clean = line.replace(/<[^>]*>/g, '').trim();
+      if (!clean) return;
+      clean.split(/\s+/).forEach((word, wi) => {
+        if (wi > 0) result += ' ';
+        result += '<span class="word" style="display:inline-block;white-space:nowrap;">';
+        [...word].forEach(ch => {
+          result += `<span class="char" style="display:inline-block;opacity:0;transform:translate3d(0,30px,0);">${ch}</span>`;
+        });
+        result += '</span>';
+      });
+    });
+    legendsTitle.innerHTML = result;
   }
 
   /* ── Footer copyright ── */

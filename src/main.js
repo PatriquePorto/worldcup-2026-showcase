@@ -1,4 +1,6 @@
-import './style.css';
+import './styles/base.css';
+import './styles/desktop.css';
+import './styles/mobile.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
@@ -11,6 +13,7 @@ import { initParticles } from './modules/particles';
 import { initAudio } from './modules/audio';
 import { initSlider } from './modules/slider';
 import { initTilt } from './modules/tilt';
+import { initDuel } from './modules/duel';
 import { initMap } from './modules/map';
 
 /* ── Register GSAP plugins once at the root level ── */
@@ -63,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAudio();
   initSlider();
   initTilt();
+  initDuel();
   initMap();
   initCountdown();
 
@@ -118,7 +122,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── 9. Gradient orb parallax — moves subtly with scroll for depth
+  // ── 9. Mobile hamburger menu toggle
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navOverlay = document.getElementById('navOverlay');
+  const headerNav = document.querySelector('.header-nav');
+  if (hamburgerBtn && headerNav) {
+    function closeMobileNav() {
+      hamburgerBtn.classList.remove('is-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      hamburgerBtn.setAttribute('aria-label', 'Open navigation menu');
+      headerNav.classList.remove('is-open');
+      navOverlay?.classList.remove('is-visible');
+    }
+    function openMobileNav() {
+      hamburgerBtn.classList.add('is-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      hamburgerBtn.setAttribute('aria-label', 'Close navigation menu');
+      headerNav.classList.add('is-open');
+      navOverlay?.classList.add('is-visible');
+    }
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = headerNav.classList.contains('is-open');
+      isOpen ? closeMobileNav() : openMobileNav();
+    });
+    navOverlay?.addEventListener('click', closeMobileNav);
+    // Close nav on link click
+    headerNav.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', closeMobileNav);
+    });
+    // Close nav on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && headerNav.classList.contains('is-open')) {
+        closeMobileNav();
+        hamburgerBtn.focus();
+      }
+    });
+  }
+
+  // ── 10. Gradient orb parallax — moves subtly with scroll for depth
   const orb1 = document.querySelector('.orb-1');
   const orb2 = document.querySelector('.orb-2');
   if (orb1 && orb2) {

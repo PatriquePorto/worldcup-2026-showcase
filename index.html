@@ -56,7 +56,6 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/src/style.css">
   <link rel="modulepreload" href="/src/main.js">
 </head>
 <body>
@@ -132,6 +131,10 @@
         <span class="btn-glow"></span>
       </button>
       <button class="lang-toggle" id="langToggle" aria-label="Switch to Portuguese">PT</button>
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-overlay" id="navOverlay"></div>
     </div>
   </header>
 
@@ -476,8 +479,8 @@
         
         <div class="duel-container">
           
-          <!-- Messi Column -->
-          <div class="duel-column messi-column" id="messiCard" tabindex="0" role="region" aria-label="Lionel Messi player card detail details">
+          <!-- Messi Column -- The Final Masterpiece -->
+          <div class="duel-column messi-column" id="messiCard" tabindex="0" role="region" aria-label="Lionel Messi player card">
             <div class="duel-glow" aria-hidden="true"></div>
             <div class="duel-player-wrapper">
               <img class="duel-glow-copy" src="/assets/players/messi.webp" alt="" aria-hidden="true" width="400" height="600">
@@ -486,8 +489,16 @@
             <div class="duel-content">
               <span class="country" data-i18n="messi.country">ARGENTINA</span>
               <h3 data-i18n-html="html.messi">LIONEL<br><span class="gold-text">MESSI</span></h3>
-              <p data-i18n="messi.desc">The defending world champion in 2022. Will this be his absolute final step in football history?</p>
-              
+              <span class="duel-subtitle gold-subtitle" data-i18n="messi.subtitle">THE FINAL MASTERPIECE</span>
+              <div class="duel-bio" data-i18n-html="messi.bio">
+                <p>Some players win matches.</p>
+                <p>Some players win trophies.</p>
+                <p>Few redefine the game itself.</p>
+                <p>For more than two decades, Lionel Messi transformed football into art, turning impossible moments into timeless memories.</p>
+                <p>As the world gathers once again for football's greatest stage, every touch, every pass, and every goal carries the weight of a legacy that inspired generations.</p>
+                <p>This is more than another World Cup.</p>
+                <p>It may be the final chapter of the greatest story ever told on a football pitch.</p>
+              </div>
               <div class="duel-stats">
                 <div class="duel-stat-row">
                   <span data-i18n="messi.stat1">BALLONS D'OR</span>
@@ -505,8 +516,8 @@
             </div>
           </div>
 
-          <!-- Cristiano Ronaldo Column -->
-          <div class="duel-column ronaldo-column" id="ronaldoCard" tabindex="0" role="region" aria-label="Cristiano Ronaldo player card details">
+          <!-- Cristiano Ronaldo Column -- Beyond Greatness -->
+          <div class="duel-column ronaldo-column" id="ronaldoCard" tabindex="0" role="region" aria-label="Cristiano Ronaldo player card">
             <div class="duel-glow" aria-hidden="true"></div>
             <div class="duel-player-wrapper">
               <img class="duel-glow-copy" src="/assets/players/cristiano.webp" alt="" aria-hidden="true" width="400" height="600">
@@ -515,8 +526,17 @@
             <div class="duel-content">
               <span class="country" data-i18n="ronaldo.country">PORTUGAL</span>
               <h3 data-i18n-html="html.ronaldo">CRISTIANO<br><span class="red-text">RONALDO</span></h3>
-              <p data-i18n="ronaldo.desc">The ultimate goal-scoring titan. Striving to complete his legacy on the grandest stage of all.</p>
-              
+              <span class="duel-subtitle red-subtitle" data-i18n="ronaldo.subtitle">BEYOND GREATNESS</span>
+              <div class="duel-bio" data-i18n-html="ronaldo.bio">
+                <p>Records were never the destination.</p>
+                <p>They were simply milestones along the way.</p>
+                <p>Through relentless ambition, unmatched discipline, and an unbreakable desire to win, Cristiano Ronaldo became one of the most iconic athletes in sporting history.</p>
+                <p>Every challenge was answered.</p>
+                <p>Every doubt became fuel.</p>
+                <p>Now, as another World Cup approaches, the journey continues.</p>
+                <p>Not as a promise of what can be achieved.</p>
+                <p>But as proof of what happens when greatness refuses to stop.</p>
+              </div>
               <div class="duel-stats">
                 <div class="duel-stat-row">
                   <span data-i18n="ronaldo.stat1">BALLONS D'OR</span>
@@ -534,6 +554,32 @@
             </div>
           </div>
           
+        </div>
+
+        <!-- ============ TWO LEGENDS, ONE LAST STAGE ============ -->
+        <div class="legends-divider" id="legendsDivider">
+          <div class="legends-inner">
+            <h2 class="legends-title" id="legendsTitle" data-split data-i18n-html="legends.title">TWO LEGENDS.<br>ONE LAST WORLD STAGE.</h2>
+            <div class="legends-line" id="legendsLine"></div>
+            <div class="legends-narrative" id="legendsNarrative" data-i18n-html="legends.text">
+              <p>For nearly twenty years, football lived through an era unlike any other.</p>
+              <p>Two icons.</p>
+              <p>Two paths.</p>
+              <p>Two definitions of greatness.</p>
+              <p>One inspired through genius.</p>
+              <p>The other through relentless determination.</p>
+              <p>Together, they elevated the sport to heights never seen before.</p>
+              <p>Stadiums erupted.</p>
+              <p>Generations were inspired.</p>
+              <p>History was rewritten.</p>
+              <p>As the lights shine on football's biggest tournament once again, the world watches not only for goals and victories.</p>
+              <p>But for one final opportunity to witness greatness.</p>
+              <p>Before the curtain falls on an unforgettable era.</p>
+            </div>
+            <div class="legends-final" id="legendsFinal">
+              <span class="legends-final-text" data-i18n="legends.final">AN ERA THAT CHANGED FOOTBALL FOREVER</span>
+            </div>
+          </div>
         </div>
       </section>
 

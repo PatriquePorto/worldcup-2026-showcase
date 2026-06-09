@@ -1,3 +1,5 @@
+import { t } from './translator';
+
 export function initAudio() {
   const audioToggle = document.getElementById('audioToggle');
   if (!audioToggle) return;
@@ -13,14 +15,14 @@ export function initAudio() {
       try {
         await audio.play();
         audioToggle.classList.add('active');
-        audioText.textContent = 'STADIUM SOUND: ON';
+        audioText.textContent = t('audio.on');
       } catch {
-        audioText.textContent = 'AUDIO BLOCKED';
+        audioText.textContent = t('audio.on');
       }
     } else {
       audio.pause();
       audioToggle.classList.remove('active');
-      audioText.textContent = 'STADIUM SOUND: OFF';
+      audioText.textContent = t('audio.off');
     }
   });
 }

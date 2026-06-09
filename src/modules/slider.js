@@ -124,6 +124,35 @@ export function initSlider() {
     }
   });
 
+  // ── Touch swipe navigation for mobile
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isSwiping = false;
+
+  section.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+    isSwiping = false;
+  }, { passive: true });
+
+  section.addEventListener('touchmove', (e) => {
+    if (!isSwiping) {
+      const dx = Math.abs(e.changedTouches[0].screenX - touchStartX);
+      const dy = Math.abs(e.changedTouches[0].screenY - touchStartY);
+      if (dx > 10 && dx > dy) isSwiping = true;
+    }
+  }, { passive: true });
+
+  section.addEventListener('touchend', (e) => {
+    if (!isSwiping) return;
+    const dx = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(dx) > 50) {
+      dx > 0
+        ? goToSlide(Math.max(currentIndex - 1, 0))
+        : goToSlide(Math.min(currentIndex + 1, SLIDE_COUNT - 1));
+    }
+  }, { passive: true });
+
   // ── ScrollTrigger: horizontal scrub driven by page scroll
   const tween = gsap.to(track, {
     x: () => -(track.scrollWidth - window.innerWidth),

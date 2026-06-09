@@ -117,10 +117,15 @@ export function initMap() {
       if (!container) return;
 
       const rect = container.getBoundingClientRect();
-      const x = e.clientX - rect.left + 15;
-      const y = e.clientY - rect.top - 140;
+      const cardW = stadiumOverlayCard.offsetWidth || 260;
+      const cardH = stadiumOverlayCard.offsetHeight || 180;
+      let x = e.clientX - rect.left + 15;
+      let y = e.clientY - rect.top - 140;
 
-      // Follow mouse coordinates inside parent container boundary
+      // Clamp within container bounds
+      x = Math.max(10, Math.min(x, rect.width - cardW - 10));
+      y = Math.max(10, Math.min(y, rect.height - cardH - 10));
+
       gsap.set(stadiumOverlayCard, { left: x, top: y });
     });
 
@@ -147,15 +152,22 @@ export function initMap() {
       if (capEl) capEl.textContent = capacity;
       if (matchesEl) matchesEl.textContent = matches;
 
-      // Position near pin coordinates (transform coordinate translates)
+      // Position near pin coordinates, clamped within viewport
+      const container = document.querySelector('.map-interactive-container');
+      const cardW = stadiumOverlayCard.offsetWidth || 260;
+      const cardH = stadiumOverlayCard.offsetHeight || 180;
       const transformAttr = pin.getAttribute('transform');
       if (transformAttr) {
         const coords = transformAttr.match(/translate\(([^,]+),\s*([^)]+)\)/);
         if (coords && coords.length >= 3) {
-          const pinX = parseFloat(coords[1]);
-          const pinY = parseFloat(coords[2]);
-          
-          gsap.set(stadiumOverlayCard, { left: pinX + 20, top: pinY - 80 });
+          let pinX = parseFloat(coords[1]) + 20;
+          let pinY = parseFloat(coords[2]) - 80;
+          if (container) {
+            const rect = container.getBoundingClientRect();
+            pinX = Math.max(10, Math.min(pinX, rect.width - cardW - 10));
+            pinY = Math.max(10, Math.min(pinY, rect.height - cardH - 10));
+          }
+          gsap.set(stadiumOverlayCard, { left: pinX, top: pinY });
         }
       }
 

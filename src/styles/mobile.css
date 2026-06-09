@@ -1,0 +1,597 @@
+/* ==========================================================================
+   RESPONSIVE: TABLET (≤1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .player-slide {
+    grid-template-columns: 1fr;
+    grid-template-rows: 45vh auto;
+    gap: 2vh;
+    padding: var(--header-height) 5vw 5vw 5vw;
+    perspective: none;
+    transform-style: flat;
+  }
+  .player-wrapper {
+    height: 100%;
+    align-items: flex-end;
+  }
+  .player-image, .glow-copy {
+    height: 100%;
+  }
+  .player-content {
+    padding-top: 0;
+    align-self: end;
+    transform: none;
+  }
+  .hud-stats-card {
+    position: relative;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 16px;
+    transform: none;
+  }
+  .player-slide .stadium-bg {
+    transform: none;
+  }
+  .player-slide .particles-overlay {
+    transform: none;
+  }
+  .player-slide .player-glow {
+    transform: none;
+  }
+  .slide-intro {
+    padding: 0 5vw;
+  }
+  .duel-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .duel-column {
+    min-height: 480px;
+  }
+  .map-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE: MOBILE (≤768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 70px;
+  }
+
+  /* ── Hamburger menu toggle ── */
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 320px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-lg);
+    background: rgba(5, 5, 5, 0.97);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid var(--border);
+    z-index: 999;
+    transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+  }
+  .header-nav.is-open {
+    right: 0;
+  }
+  .nav-link {
+    font-size: var(--text-lg);
+    padding: var(--space-sm);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .nav-link::after {
+    display: none;
+  }
+
+  /* ── Hamburger button ── */
+  .hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    z-index: 1000;
+    position: relative;
+    transition: border-color 0.3s;
+    min-height: 44px;
+  }
+  .hamburger-btn span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .hamburger-btn.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger-btn.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-btn.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .hamburger-btn:hover {
+    border-color: var(--border-focus);
+  }
+
+  /* ── Overlay behind mobile nav ── */
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    display: block;
+  }
+  .nav-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .header-actions {
+    gap: var(--space-xs);
+  }
+
+  /* ── Hero ── */
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-ghost-number {
+    font-size: clamp(6rem, 20vw, 10rem);
+    opacity: 0.03;
+  }
+  .hero-spotlight {
+    width: 150%;
+  }
+  .tagline-deco {
+    width: 24px;
+  }
+  .hero-tagline {
+    gap: var(--space-xs);
+    font-size: 0.55rem;
+  }
+  .hero-badge {
+    font-size: 0.55rem;
+    padding: 4px 12px;
+  }
+  .hero-countdown {
+    margin-top: var(--space-sm);
+  }
+  .cd-num {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+  }
+  .cd-sep {
+    margin: 0 4px;
+  }
+
+  /* ── Player slides ── */
+  .player-slide {
+    grid-template-rows: 35vh auto;
+    gap: 0;
+    padding: var(--header-height) 5vw 5vw 5vw;
+    perspective: none;
+    transform-style: flat;
+  }
+  .player-slide .stadium-bg {
+    transform: none;
+  }
+  .player-slide .particles-overlay {
+    transform: none;
+  }
+  .player-slide .player-glow {
+    transform: none;
+  }
+  .player-wrapper {
+    height: 100%;
+    width: 100%;
+  }
+  .player-image,
+  .glow-copy {
+    height: 90%;
+    bottom: 0;
+  }
+  .player-content {
+    padding-top: 0;
+    align-self: end;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    transform: none;
+  }
+  .player-slide .country {
+    font-size: var(--text-2xs);
+    margin-bottom: 2px;
+  }
+  .player-name {
+    font-size: 2.4rem;
+    margin-bottom: 6px;
+  }
+  .player-desc {
+    font-size: var(--text-xs);
+    max-width: 100%;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .hud-stats-card {
+    position: relative;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 8px;
+    transform: none;
+    padding: var(--space-xs) var(--space-sm);
+  }
+  .hud-header {
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+  }
+  .hud-title {
+    font-size: var(--text-2xs);
+  }
+  .hud-badge {
+    font-size: var(--text-2xs);
+    padding: 2px 6px;
+  }
+  .hud-stats-list {
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+  .hud-stat {
+    grid-template-columns: 50px 1fr 22px;
+    gap: 6px;
+  }
+  .stat-name {
+    font-size: var(--text-2xs);
+  }
+  .stat-bar-container {
+    margin-left: 0;
+  }
+  .stat-val {
+    font-size: var(--text-xs);
+  }
+  .hud-footer {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .stat-pill {
+    font-size: var(--text-2xs);
+    padding: 4px 8px;
+  }
+
+  /* ── Duel section ── */
+  .duel-column {
+    padding: 24px var(--space-md);
+    min-height: 420px;
+  }
+  .duel-player-wrapper {
+    opacity: 0.25;
+    width: 100%;
+    height: 100%;
+    right: auto;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
+  .duel-player-image,
+  .duel-glow-copy {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .duel-glow-copy {
+    display: none;
+  }
+  .duel-content {
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .duel-content .country {
+    text-align: center;
+  }
+  .duel-content h3 {
+    text-align: center;
+  }
+  .duel-content p {
+    text-align: center;
+  }
+  .duel-stats {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    gap: 8px;
+  }
+  .duel-stat-row {
+    gap: 8px;
+    grid-template-columns: 1fr auto;
+  }
+  .duel-stat-row span {
+    font-size: 0.55rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  .duel-stat-row strong {
+    font-size: var(--text-sm);
+  }
+  .duel-subtitle {
+    font-size: 0.6rem;
+    margin-bottom: 8px;
+  }
+  .duel-bio p {
+    font-size: 0.6rem;
+    line-height: 1.5;
+  }
+  .duel-bio p + p {
+    margin-top: 6px;
+  }
+
+  /* ── Legends ── */
+  .legends-divider {
+    margin-top: 50px;
+    padding: 40px 4%;
+  }
+  .legends-title {
+    font-size: 2.2rem;
+  }
+  .legends-narrative p {
+    font-size: 0.7rem;
+    line-height: 1.7;
+  }
+  .legends-final-text {
+    font-size: var(--text-xl);
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  /* ── Map ── */
+  .stadium-overlay-card {
+    width: 200px;
+    padding: 12px;
+  }
+  .pin-label {
+    font-size: 7px;
+  }
+
+  /* ── Audio ── */
+  .audio-toggle {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  /* ── Footer ── */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .footer-title,
+  .footer-desc,
+  .footer-cta-wrapper {
+    text-align: center;
+  }
+  .footer-desc {
+    max-width: 100%;
+  }
+  .footer-cta-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .footer-col-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-links {
+    align-items: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE: SMALL MOBILE (≤480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .player-slide {
+    grid-template-rows: 30vh auto;
+    padding: var(--header-height) 4vw 4vw 4vw;
+  }
+  .player-image,
+  .glow-copy {
+    height: 85%;
+  }
+  .player-name {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+  }
+  .player-desc {
+    font-size: 0.6rem;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .hud-stats-card {
+    padding: 6px 10px;
+    margin-top: 4px;
+  }
+  .hud-stat {
+    grid-template-columns: 40px 1fr 18px;
+    gap: 4px;
+  }
+  .stat-name {
+    font-size: 0.5rem;
+  }
+  .stat-bar-container {
+    height: 3px;
+  }
+  .stat-val {
+    font-size: 0.5rem;
+  }
+  .stat-pill {
+    font-size: 0.45rem;
+    padding: 2px 6px;
+  }
+
+  /* Duel */
+  .duel-column {
+    min-height: 340px;
+    padding: 20px var(--space-sm);
+  }
+  .duel-content .country {
+    font-size: 0.55rem;
+  }
+  .duel-content h3 {
+    font-size: 1.4rem;
+  }
+  .duel-content p {
+    font-size: 0.6rem;
+    line-height: 1.4;
+    margin-bottom: var(--space-sm);
+  }
+  .duel-stats {
+    gap: 6px;
+  }
+  .duel-stat-row {
+    padding-bottom: 4px;
+  }
+  .duel-stat-row span {
+    font-size: 0.5rem;
+  }
+  .duel-stat-row strong {
+    font-size: var(--text-sm);
+  }
+  .duel-subtitle {
+    font-size: 0.55rem;
+    margin-bottom: 6px;
+  }
+  .duel-bio p {
+    font-size: 0.55rem;
+    line-height: 1.4;
+  }
+
+  /* Legends */
+  .legends-title {
+    font-size: 2rem;
+  }
+  .legends-narrative p {
+    font-size: 0.6rem;
+  }
+
+  /* Map */
+  .stadium-overlay-card {
+    width: 160px;
+    padding: 8px;
+  }
+  .stadium-name {
+    font-size: var(--text-sm);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE: MICRO DEVICE (≤400px)
+   Covers iPhone 12/13/14/15 Pro (390px), SE (375px) and smaller
+   ========================================================================== */
+@media (max-width: 400px) {
+  html {
+    font-size: 14px;
+  }
+  .main-header {
+    padding: 0 15px;
+  }
+  .btn-magnetic {
+    padding: 12px 18px;
+    min-height: 44px;
+  }
+  .audio-toggle {
+    padding: 12px 16px;
+    gap: 6px;
+    min-height: 44px;
+  }
+  .player-name {
+    font-size: 1.4rem;
+  }
+
+  /* Duel cards: ensure text stays within bounds */
+  .duel-column {
+    padding: 16px 12px;
+    min-height: 300px;
+  }
+  .duel-content h3 {
+    font-size: 1.2rem;
+  }
+  .duel-content p {
+    font-size: 0.55rem;
+  }
+  .duel-stats {
+    gap: 4px;
+  }
+  .duel-stat-row span {
+    font-size: 0.45rem;
+  }
+  .duel-stat-row strong {
+    font-size: 0.8rem;
+  }
+  .duel-subtitle {
+    font-size: 0.6rem;
+    margin-bottom: 6px;
+  }
+  .duel-bio p {
+    font-size: 0.5rem;
+    line-height: 1.4;
+  }
+  .legends-divider {
+    margin-top: 40px;
+    padding: 40px 4%;
+  }
+  .legends-title {
+    font-size: 1.8rem;
+  }
+  .legends-narrative p {
+    font-size: 0.65rem;
+    line-height: 1.6;
+  }
+  .legends-final-text {
+    font-size: var(--text-lg);
+    padding: var(--space-sm) var(--space-md);
+  }
+}
