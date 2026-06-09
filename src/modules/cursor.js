@@ -35,7 +35,7 @@ export function initCursor() {
 
   // Cursor Hover Events (Grow & Tint overlays)
   const bindHoverEvents = () => {
-    const targets = document.querySelectorAll('a, button, .btn-magnetic, .map-pin, .duel-column');
+    const targets = document.querySelectorAll('a, button, .btn-magnetic, .map-pin, .duel-column, .player-wrapper');
     targets.forEach(item => {
       item.addEventListener('mouseenter', () => {
         cursor.classList.add('hovered');

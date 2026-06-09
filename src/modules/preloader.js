@@ -45,14 +45,14 @@ export function initPreloader(onCompleteCallback) {
   if (heroTitle) splitTextIntoSpans(heroTitle);
 
   const assets = [
-    '/assets/backgrounds/stadium-bg.png',
-    '/assets/players/mbappe.png',
-    '/assets/players/vini-jr.png',
-    '/assets/players/bellingham.png',
-    '/assets/players/yamal.png',
-    '/assets/players/haaland.png',
-    '/assets/players/messi.png',
-    '/assets/players/cristiano.png',
+    '/assets/backgrounds/stadium-bg.webp',
+    '/assets/players/mbappe.webp',
+    '/assets/players/vini-jr.webp',
+    '/assets/players/bellingham.webp',
+    '/assets/players/yamal.webp',
+    '/assets/players/haaland.webp',
+    '/assets/players/messi.webp',
+    '/assets/players/cristiano.webp',
   ];
 
   let loaded = 0;

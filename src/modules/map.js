@@ -3,12 +3,29 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* Evaluate a quadratic bezier at t ∈ [0,1] */
+function quadBezier(px, py, cx, cy, ex, ey, t) {
+  const mt = 1 - t;
+  return {
+    x: mt * mt * px + 2 * mt * t * cx + t * t * ex,
+    y: mt * mt * py + 2 * mt * t * cy + t * t * ey,
+  };
+}
+
+/* Parse a "M x1,y1 Q cx,cy ex,ey" path and return the control points */
+function parseQuadPath(d) {
+  const m = d.match(/M\s*([\d.]+),([\d.]+)\s+Q\s+([\d.]+),([\d.]+)\s+([\d.]+),([\d.]+)/);
+  if (!m) return null;
+  return { px: +m[1], py: +m[2], cx: +m[3], cy: +m[4], ex: +m[5], ey: +m[6] };
+}
+
 export function initMap() {
   const mapPins = document.querySelectorAll('.map-pin.host');
   const stadiumOverlayCard = document.getElementById('stadiumOverlayCard');
   const roadGlorySection = document.querySelector('.road-glory-section');
+  const svg = document.getElementById('worldMapSvg');
   
-  if (!stadiumOverlayCard || !roadGlorySection) return;
+  if (!stadiumOverlayCard || !roadGlorySection || !svg) return;
 
   const cityEl = stadiumOverlayCard.querySelector('.stadium-city');
   const nameEl = stadiumOverlayCard.querySelector('.stadium-name');
@@ -29,6 +46,45 @@ export function initMap() {
       start: 'top 70%',
       toggleActions: 'play none none reverse'
     }
+  });
+
+  // 2. Animated traveling dots along flight paths
+  function createTravelDots() {
+    const lines = document.querySelectorAll('.flight-line');
+    lines.forEach(line => {
+      const d = line.getAttribute('d');
+      const cp = parseQuadPath(d);
+      if (!cp) return;
+
+      const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      dot.setAttribute('r', '3');
+      dot.setAttribute('class', 'flight-dot');
+      svg.appendChild(dot);
+
+      const duration = 3 + Math.random() * 2;
+      const delay = Math.random() * 2;
+
+      gsap.to(dot, {
+        progress: 1,
+        duration,
+        repeat: -1,
+        ease: 'none',
+        delay,
+        onUpdate() {
+          const t = this.progress();
+          const pos = quadBezier(cp.px, cp.py, cp.cx, cp.cy, cp.ex, cp.ey, t);
+          dot.setAttribute('cx', pos.x);
+          dot.setAttribute('cy', pos.y);
+        },
+      });
+    });
+  }
+
+  ScrollTrigger.create({
+    trigger: roadGlorySection,
+    start: 'top 70%',
+    onEnter: createTravelDots,
+    once: true,
   });
 
   // 2. Interactive Host Pins Hover Dialog overlays
