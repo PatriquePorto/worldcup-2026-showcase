@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIFA World Cup 2026 - The Next Legends | Cinematic Showcase</title>
+  <meta name="description" content="Explore the elite football athletes and matches defining the future of the FIFA World Cup 2026 in USA, Canada, and Mexico. A cinematic, multi-layered 3D web experience.">
+  
+  <!-- Canonical & SEO -->
+  <link rel="canonical" href="https://worldcup2026legends.com/">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://worldcup2026legends.com/">
+  <meta property="og:title" content="FIFA World Cup 2026 - The Next Legends">
+  <meta property="og:description" content="Explore the elite football athletes and matches defining the future of the FIFA World Cup 2026. A cinematic, multi-layered 3D web experience.">
+  <meta property="og:image" content="https://worldcup2026legends.com/assets/backgrounds/stadium-bg.png">
+  <meta property="og:site_name" content="FIFA 2026 Legends">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://worldcup2026legends.com/">
+  <meta property="twitter:title" content="FIFA World Cup 2026 - The Next Legends">
+  <meta property="twitter:description" content="Explore the elite football athletes and matches defining the future of the FIFA World Cup 2026. A cinematic, multi-layered 3D web experience.">
+  <meta property="twitter:image" content="https://worldcup2026legends.com/assets/backgrounds/stadium-bg.png">
+
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Schema.org JSON-LD Structured Metadata -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": "FIFA World Cup 2026 - The Next Legends Showcase",
+    "description": "Explore the elite football athletes defining the future of the FIFA World Cup 2026 in USA, Canada, and Mexico.",
+    "startDate": "2026-06-11",
+    "endDate": "2026-07-19",
+    "location": [
+      {
+        "@type": "Place",
+        "name": "United States"
+      },
+      {
+        "@type": "Place",
+        "name": "Canada"
+      },
+      {
+        "@type": "Place",
+        "name": "Mexico"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="modulepreload" href="/src/main.js">
+</head>
+<body>
+
+  <!-- WCAG 2.2 accessibility skip link — targets <main> directly -->
+  <a href="#smooth-wrapper" class="skip-link" data-i18n="skip">Skip to main content</a>
+
+  <!-- Cinematic Preloader -->
+  <div id="preloader" role="status" aria-live="polite" aria-label="Loading site experience">
+    <div class="preloader-content">
+      <div class="loader-logo-container">
+        <svg class="fwc-logo-svg" viewBox="0 0 100 100" width="80" height="80" aria-hidden="true">
+          <circle cx="50" cy="50" r="45" stroke="var(--gold)" stroke-width="2" fill="none" class="pulsing-circle" />
+          <path d="M50,15 L60,35 L80,35 L65,50 L70,75 L50,60 L30,75 L35,50 L20,35 L40,35 Z" fill="var(--gold)" class="star-glow"/>
+        </svg>
+        <span class="loader-logo-text">FIFA 26</span>
+      </div>
+      <div class="loader-bar-wrapper">
+        <div class="loader-bar"></div>
+      </div>
+      <div class="loader-stats">
+        <span class="loader-subtitle" data-i18n="preloader.subtitle">LOADING ASSETS...</span>
+        <span class="loader-percentage">0%</span>
+      </div>
+      <!-- Fallback loader bypass if slow -->
+      <button class="loader-bypass" id="loaderBypass" aria-label="Bypass loading screen" data-i18n="preloader.bypass">Bypass loading</button>
+    </div>
+    <div class="preloader-noise" aria-hidden="true"></div>
+    <div class="preloader-scanlines" aria-hidden="true"></div>
+  </div>
+
+  <!-- Custom Cinematic Cursor -->
+  <div class="custom-cursor" aria-hidden="true">
+    <div class="cursor-ring"></div>
+    <div class="cursor-dot"></div>
+    <span class="cursor-label">VIEW</span>
+  </div>
+
+  <!-- Ambient Stadium Audio Toggle -->
+  <button class="audio-toggle" id="audioToggle" aria-label="Toggle ambient stadium audio sound synthesis">
+    <div class="sound-waves" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <span class="audio-text" data-i18n="audio.off">STADIUM SOUND: OFF</span>
+  </button>
+
+  <!-- Interactive Navigation banner -->
+  <header class="main-header" role="banner">
+    <a href="#" class="header-logo" id="logoLink" aria-label="FIFA World Cup 2026 Home Link">
+      <span class="brand-fifa">FIFA</span>
+      <span class="brand-year">26</span>
+    </a>
+    <nav class="header-nav" aria-label="Main Navigation links">
+      <a href="#hero" class="nav-link" data-i18n="nav.home">HOME</a>
+      <a href="#chapter1" class="nav-link" data-i18n="nav.ch1">CHAPTER I</a>
+      <a href="#chapter2" class="nav-link" data-i18n="nav.ch2">CHAPTER II</a>
+      <a href="#chapter3" class="nav-link" data-i18n="nav.ch3">ROAD TO GLORY</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-magnetic btn-primary" id="exploreBtn" aria-label="Explore tournament teams">
+        <span class="btn-text" data-i18n="header.cta">EXPLORE TEAMS</span>
+        <span class="btn-glow"></span>
+      </button>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch to Portuguese">PT</button>
+    </div>
+  </header>
+
+  <!-- Cinematic Background Elements -->
+  <div class="global-noise" aria-hidden="true"></div>
+  <div class="background-grid" aria-hidden="true"></div>
+  <div class="gradient-orb orb-1" aria-hidden="true"></div>
+  <div class="gradient-orb orb-2" aria-hidden="true"></div>
+
+  <!-- Main Smooth Scroll Container -->
+  <main id="smooth-wrapper" role="main">
+    <div id="smooth-content">
+
+      <!-- ================= HERO SECTION ================= -->
+      <section id="hero" class="hero-section" aria-label="Introduction Screen">
+        <div class="hero-bg-container">
+          <img class="hero-stadium-img" src="/assets/backgrounds/stadium-bg.png" alt="Futuristic stadium under the night sky with glowing stage lights" width="1920" height="1080" fetchpriority="high">
+          <div class="stadium-overlay" aria-hidden="true"></div>
+          <canvas id="particleCanvas" aria-hidden="true"></canvas>
+        </div>
+        
+        <div class="hero-spotlight" aria-hidden="true"></div>
+        <div class="hero-flare-bottom" aria-hidden="true"></div>
+        <div class="hero-ghost-number" aria-hidden="true">2026</div>
+        <div class="hero-container">
+          <div class="hero-content">
+            <span class="hero-tagline glow-text">
+              <span class="tagline-deco" aria-hidden="true"></span>
+              <span data-i18n="hero.tagline">THE GREATEST STAGE ON EARTH</span>
+              <span class="tagline-deco" aria-hidden="true"></span>
+            </span>
+            <h1 class="hero-title" id="heroTitle">
+              FIFA WORLD CUP 2026<br>THE NEXT LEGENDS
+            </h1>
+            <p class="hero-subtitle" id="heroSubtitle" data-i18n="hero.subtitle">
+              Explore the stars who will define football's biggest stage. An interactive showcase of elite talent.
+            </p>
+            <div class="hero-badge">
+              <span class="hero-badge-dot" aria-hidden="true"></span>
+              <span data-i18n="hero.badge">16 CITIES · 3 NATIONS · ONE STAGE</span>
+              <span class="hero-badge-dot" aria-hidden="true"></span>
+            </div>
+            <div class="hero-actions-wrapper">
+              <button class="btn-magnetic btn-gold" id="enterBtn" aria-label="Enter the legends interactive showcase">
+                <span class="btn-text" data-i18n="hero.cta">ENTER EXPERIENCE</span>
+                <span class="btn-glow"></span>
+              </button>
+            </div>
+          </div>
+          <div class="hero-countdown" id="heroCountdown" aria-label="Countdown to World Cup 2026 start"></div>
+        </div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+          <span class="scroll-text" data-i18n="hero.scroll">SCROLL TO DISCOVER</span>
+          <div class="scroll-mouse">
+            <span class="scroll-wheel"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CHAPTER 1: RISE OF NEW LEGENDS ================= -->
+      <section id="chapter1" class="horizontal-scroll-section" role="region" aria-roledescription="carousel" aria-label="Football Legends Showcase Carousel">
+        <div class="pin-container">
+          <div class="horizontal-slider">
+            
+            <!-- Slide 0: Chapter Intro -->
+            <div class="slide slide-intro" role="group" aria-roledescription="slide" aria-label="Chapter One Introduction" tabindex="0">
+              <div class="chapter-intro-content">
+                <span class="chapter-num glow-text" data-i18n="ch1.num">CHAPTER I</span>
+                <h2 class="chapter-title" data-i18n="ch1.title">RISE OF NEW LEGENDS</h2>
+                <div class="divider-glow" aria-hidden="true"></div>
+                <p class="chapter-desc" data-i18n="ch1.desc">
+                  The vanguard of modern football. Young, relentless, and hungry for absolute global glory in North America.
+                </p>
+                <div class="swipe-hint" aria-hidden="true">
+                  <span data-i18n="ch1.swipe">SCROLL DOWN TO PROGRESS HORIZONTALLY</span>
+                  <div class="arrow-swipe"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 1: Mbappé -->
+            <div class="slide player-slide" data-player="mbappe" data-color="--cyan" role="group" aria-roledescription="slide" aria-label="Kylian Mbappé player card details" tabindex="0">
+              <div class="stadium-bg" aria-hidden="true"></div>
+              <div class="particles-overlay" aria-hidden="true"></div>
+              <div class="player-glow" aria-hidden="true"></div>
+              <div class="player-wrapper">
+                <img class="glow-copy" src="/assets/players/mbappe.png" alt="" aria-hidden="true" width="400" height="600">
+                <img class="player-image" src="/assets/players/mbappe.png" alt="Kylian Mbappé on field stance" width="400" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="player-content">
+                <span class="country" data-i18n="player.mbappe.country">FRANCE</span>
+                <h2 class="player-name" data-i18n-html="html.player.mbappe">KYLIAN<br><span class="highlight">MBAPPÉ</span></h2>
+                <p class="player-desc" data-i18n="player.mbappe.desc">
+                  World champion and lightning-fast attacker, poised to carry France to another historic milestone.
+                </p>
+              </div>
+              <div class="hud-stats-card" aria-label="Mbappe tournament stats details">
+                <div class="hud-header">
+                  <span class="hud-title" data-i18n="player.mbappe.club">REAL MADRID // L1</span>
+                  <span class="hud-badge" data-i18n="player.mbappe.age">AGE: 27</span>
+                </div>
+                <div class="hud-stats-list">
+                  <div class="hud-stat" data-stat="97">
+                    <span class="stat-name" data-i18n="stat.pace">PACE</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="92">
+                    <span class="stat-name" data-i18n="stat.shooting">SHOOTING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="93">
+                    <span class="stat-name" data-i18n="stat.dribbling">DRIBBLING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="84">
+                    <span class="stat-name" data-i18n="stat.passing">PASSING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                </div>
+                <div class="hud-footer">
+                  <div class="stat-pill" data-i18n="player.mbappe.footer1">WC GOALS: 12</div>
+                  <div class="stat-pill" data-i18n="player.mbappe.footer2">VALUE: €180M</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Vinícius Júnior -->
+            <div class="slide player-slide" data-player="vini" data-color="--green" role="group" aria-roledescription="slide" aria-label="Vinícius Júnior player card details" tabindex="0">
+              <div class="stadium-bg" aria-hidden="true"></div>
+              <div class="particles-overlay" aria-hidden="true"></div>
+              <div class="player-glow" aria-hidden="true"></div>
+              <div class="player-wrapper">
+                <img class="glow-copy" src="/assets/players/vini-jr.png" alt="" aria-hidden="true" width="400" height="600">
+                <img class="player-image" src="/assets/players/vini-jr.png" alt="Vinícius Júnior active dribbling stance" width="400" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="player-content">
+                <span class="country" data-i18n="player.vini.country">BRAZIL</span>
+                <h2 class="player-name" data-i18n-html="html.player.vini">VINÍCIUS<br><span class="highlight">JÚNIOR</span></h2>
+                <p class="player-desc" data-i18n="player.vini.desc">
+                  Brazil's explosive spearhead, combining lethal velocity and samba dribbling to dominate the left wing.
+                </p>
+              </div>
+              <div class="hud-stats-card" aria-label="Vinícius Júnior stats details">
+                <div class="hud-header">
+                  <span class="hud-title" data-i18n="player.vini.club">REAL MADRID // L2</span>
+                  <span class="hud-badge" data-i18n="player.vini.age">AGE: 25</span>
+                </div>
+                <div class="hud-stats-list">
+                  <div class="hud-stat" data-stat="96">
+                    <span class="stat-name" data-i18n="stat.pace">PACE</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="89">
+                    <span class="stat-name" data-i18n="stat.shooting">SHOOTING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="95">
+                    <span class="stat-name" data-i18n="stat.dribbling">DRIBBLING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="86">
+                    <span class="stat-name" data-i18n="stat.passing">PASSING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                </div>
+                <div class="hud-footer">
+                  <div class="stat-pill" data-i18n="player.vini.footer1">APP: 35</div>
+                  <div class="stat-pill" data-i18n="player.vini.footer2">VALUE: €150M</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Jude Bellingham -->
+            <div class="slide player-slide" data-player="bellingham" data-color="--gold" role="group" aria-roledescription="slide" aria-label="Jude Bellingham player card details" tabindex="0">
+              <div class="stadium-bg" aria-hidden="true"></div>
+              <div class="particles-overlay" aria-hidden="true"></div>
+              <div class="player-glow" aria-hidden="true"></div>
+              <div class="player-wrapper">
+                <img class="glow-copy" src="/assets/players/bellingham.png" alt="" aria-hidden="true" width="400" height="600">
+                <img class="player-image" src="/assets/players/bellingham.png" alt="Jude Bellingham iconic celebrating stance" width="400" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="player-content">
+                <span class="country" data-i18n="player.bellingham.country">ENGLAND</span>
+                <h2 class="player-name" data-i18n-html="html.player.bellingham">JUDE<br><span class="highlight">BELLINGHAM</span></h2>
+                <p class="player-desc" data-i18n="player.bellingham.desc">
+                  The complete modern midfielder. Vision, power, and high football IQ that dictates the rhythm of the game.
+                </p>
+              </div>
+              <div class="hud-stats-card" aria-label="Jude Bellingham stats details">
+                <div class="hud-header">
+                  <span class="hud-title" data-i18n="player.bellingham.club">REAL MADRID // L3</span>
+                  <span class="hud-badge" data-i18n="player.bellingham.age">AGE: 22</span>
+                </div>
+                <div class="hud-stats-list">
+                  <div class="hud-stat" data-stat="85">
+                    <span class="stat-name" data-i18n="stat.pace">PACE</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="88">
+                    <span class="stat-name" data-i18n="stat.shooting">SHOOTING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="90">
+                    <span class="stat-name" data-i18n="stat.dribbling">DRIBBLING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="91">
+                    <span class="stat-name" data-i18n="stat.passing">PASSING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                </div>
+                <div class="hud-footer">
+                  <div class="stat-pill" data-i18n="player.bellingham.footer1">APP: 40</div>
+                  <div class="stat-pill" data-i18n="player.bellingham.footer2">VALUE: €180M</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Lamine Yamal -->
+            <div class="slide player-slide" data-player="yamal" data-color="--red" role="group" aria-roledescription="slide" aria-label="Lamine Yamal player card details" tabindex="0">
+              <div class="stadium-bg" aria-hidden="true"></div>
+              <div class="particles-overlay" aria-hidden="true"></div>
+              <div class="player-glow" aria-hidden="true"></div>
+              <div class="player-wrapper">
+                <img class="glow-copy" src="/assets/players/yamal.png" alt="" aria-hidden="true" width="400" height="600">
+                <img class="player-image" src="/assets/players/yamal.png" alt="Lamine Yamal active running stance" width="400" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="player-content">
+                <span class="country" data-i18n="player.yamal.country">SPAIN</span>
+                <h2 class="player-name" data-i18n-html="html.player.yamal">LAMINE<br><span class="highlight">YAMAL</span></h2>
+                <p class="player-desc" data-i18n="player.yamal.desc">
+                  The teenage prodigy redefining limits. Spain's most creative spark, ready to take the world by storm.
+                </p>
+              </div>
+              <div class="hud-stats-card" aria-label="Lamine Yamal stats details">
+                <div class="hud-header">
+                  <span class="hud-title" data-i18n="player.yamal.club">BARCELONA // L4</span>
+                  <span class="hud-badge" data-i18n="player.yamal.age">AGE: 18</span>
+                </div>
+                <div class="hud-stats-list">
+                  <div class="hud-stat" data-stat="92">
+                    <span class="stat-name" data-i18n="stat.pace">PACE</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="84">
+                    <span class="stat-name" data-i18n="stat.shooting">SHOOTING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="94">
+                    <span class="stat-name" data-i18n="stat.dribbling">DRIBBLING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="89">
+                    <span class="stat-name" data-i18n="stat.passing">PASSING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                </div>
+                <div class="hud-footer">
+                  <div class="stat-pill" data-i18n="player.yamal.footer1">APP: 16</div>
+                  <div class="stat-pill" data-i18n="player.yamal.footer2">VALUE: €120M</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5: Erling Haaland -->
+            <div class="slide player-slide" data-player="haaland" data-color="--cyan" role="group" aria-roledescription="slide" aria-label="Erling Haaland player card details" tabindex="0">
+              <div class="stadium-bg" aria-hidden="true"></div>
+              <div class="particles-overlay" aria-hidden="true"></div>
+              <div class="player-glow" aria-hidden="true"></div>
+              <div class="player-wrapper">
+                <img class="glow-copy" src="/assets/players/haaland.png" alt="" aria-hidden="true" width="400" height="600">
+                <img class="player-image" src="/assets/players/haaland.png" alt="Erling Haaland forward running stance" width="400" height="600" loading="lazy" decoding="async">
+              </div>
+              <div class="player-content">
+                <span class="country" data-i18n="player.haaland.country">NORWAY</span>
+                <h2 class="player-name" data-i18n-html="html.player.haaland">ERLING<br><span class="highlight">HAALAND</span></h2>
+                <p class="player-desc" data-i18n="player.haaland.desc">
+                  An unstoppable machine. Pure physical power and clinical finishing that strikes fear into any defence.
+                </p>
+              </div>
+              <div class="hud-stats-card" aria-label="Erling Haaland stats details">
+                <div class="hud-header">
+                  <span class="hud-title" data-i18n="player.haaland.club">MANCHESTER CITY // L5</span>
+                  <span class="hud-badge" data-i18n="player.haaland.age">AGE: 25</span>
+                </div>
+                <div class="hud-stats-list">
+                  <div class="hud-stat" data-stat="89">
+                    <span class="stat-name" data-i18n="stat.pace">PACE</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="96">
+                    <span class="stat-name" data-i18n="stat.shooting">SHOOTING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="82">
+                    <span class="stat-name" data-i18n="stat.dribbling">DRIBBLING</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                  <div class="hud-stat" data-stat="91">
+                    <span class="stat-name" data-i18n="stat.physical">PHYSICAL</span>
+                    <div class="stat-bar-container" aria-hidden="true"><div class="stat-bar" style="width: 0%"></div></div>
+                    <span class="stat-val">0</span>
+                  </div>
+                </div>
+                <div class="hud-footer">
+                  <div class="stat-pill" data-i18n="player.haaland.footer1">GOALS: 90+</div>
+                  <div class="stat-pill" data-i18n="player.haaland.footer2">VALUE: €180M</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CHAPTER 2: THE LAST DANCE ================= -->
+      <section id="chapter2" class="last-dance-section" aria-label="Chapter Two: The Last Dance">
+        <div class="chapter-tag-container">
+          <span class="chapter-num glow-text" data-i18n="ch2.num">CHAPTER II</span>
+          <h2 class="chapter-title" data-i18n="ch2.title">THE LAST DANCE</h2>
+        </div>
+        
+        <div class="duel-container">
+          
+          <!-- Messi Column -->
+          <div class="duel-column messi-column" id="messiCard" tabindex="0" role="region" aria-label="Lionel Messi player card detail details">
+            <div class="duel-glow" aria-hidden="true"></div>
+            <div class="duel-player-wrapper">
+              <img class="duel-glow-copy" src="/assets/players/messi.png" alt="" aria-hidden="true" width="400" height="600">
+              <img class="duel-player-image" src="/assets/players/messi.png" alt="Lionel Messi celebrating pointing to sky" width="400" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="duel-content">
+              <span class="country" data-i18n="messi.country">ARGENTINA</span>
+              <h3 data-i18n-html="html.messi">LIONEL<br><span class="gold-text">MESSI</span></h3>
+              <p data-i18n="messi.desc">The defending world champion in 2022. Will this be his absolute final step in football history?</p>
+              
+              <div class="duel-stats">
+                <div class="duel-stat-row">
+                  <span data-i18n="messi.stat1">BALLONS D'OR</span>
+                  <strong>8</strong>
+                </div>
+                <div class="duel-stat-row">
+                  <span data-i18n="messi.stat2">WORLD CUPS</span>
+                  <strong>1</strong>
+                </div>
+                <div class="duel-stat-row">
+                  <span data-i18n="messi.stat3">GOALS</span>
+                  <strong>830+</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cristiano Ronaldo Column -->
+          <div class="duel-column ronaldo-column" id="ronaldoCard" tabindex="0" role="region" aria-label="Cristiano Ronaldo player card details">
+            <div class="duel-glow" aria-hidden="true"></div>
+            <div class="duel-player-wrapper">
+              <img class="duel-glow-copy" src="/assets/players/cristiano.png" alt="" aria-hidden="true" width="400" height="600">
+              <img class="duel-player-image" src="/assets/players/cristiano.png" alt="Cristiano Ronaldo iconic celebration stance" width="400" height="600" loading="lazy" decoding="async">
+            </div>
+            <div class="duel-content">
+              <span class="country" data-i18n="ronaldo.country">PORTUGAL</span>
+              <h3 data-i18n-html="html.ronaldo">CRISTIANO<br><span class="red-text">RONALDO</span></h3>
+              <p data-i18n="ronaldo.desc">The ultimate goal-scoring titan. Striving to complete his legacy on the grandest stage of all.</p>
+              
+              <div class="duel-stats">
+                <div class="duel-stat-row">
+                  <span data-i18n="ronaldo.stat1">BALLONS D'OR</span>
+                  <strong>5</strong>
+                </div>
+                <div class="duel-stat-row">
+                  <span data-i18n="ronaldo.stat2">CHAMPIONS LEAGUE</span>
+                  <strong>5</strong>
+                </div>
+                <div class="duel-stat-row">
+                  <span data-i18n="ronaldo.stat3">GOALS</span>
+                  <strong>890+</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- ================= CHAPTER 3: ROAD TO GLORY ================= -->
+      <section id="chapter3" class="road-glory-section" aria-label="Chapter Three: Road to Glory Map Details">
+        <div class="chapter-tag-container">
+          <span class="chapter-num glow-text" data-i18n="ch3.num">CHAPTER III</span>
+          <h2 class="chapter-title" data-i18n="ch3.title">ROAD TO GLORY</h2>
+        </div>
+        
+        <div class="map-layout">
+          <div class="map-interactive-container" role="region" aria-label="Interactive world map showing tournament flight lines and host stadiums">
+            <svg id="worldMapSvg" viewBox="0 0 1000 500" class="world-map-svg">
+              <defs>
+                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="var(--cyan)"/>
+                  <stop offset="100%" stop-color="var(--gold)"/>
+                </linearGradient>
+                <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+              
+              <!-- Grid background lines -->
+              <g class="grid-lines" opacity="0.15">
+                <line x1="0" y1="100" x2="1000" y2="100" stroke="#FFF" stroke-width="0.5"/>
+                <line x1="0" y1="200" x2="1000" y2="200" stroke="#FFF" stroke-width="0.5"/>
+                <line x1="0" y1="300" x2="1000" y2="300" stroke="#FFF" stroke-width="0.5"/>
+                <line x1="0" y1="400" x2="1000" y2="400" stroke="#FFF" stroke-width="0.5"/>
+                <line x1="200" y1="0" x2="200" y2="500" stroke="#FFF" stroke-width="0.5"/>
+                <line x1="400" y1="0" x2="400" y2="500" stroke="#FFF" stroke-width="0.5"/>
+                <line x1="600" y1="0" x2="600" y2="500" stroke="#FFF" stroke-width="0.5"/>
+                <line x1="800" y1="0" x2="800" y2="500" stroke="#FFF" stroke-width="0.5"/>
+              </g>
+
+              <!-- Connection Lines -->
+              <path class="flight-line" id="lineParis" d="M 800,160 Q 550,120 300,180" fill="none" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+              <path class="flight-line" id="lineMadrid" d="M 780,190 Q 530,160 280,230" fill="none" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+              <path class="flight-line" id="lineRio" d="M 720,410 Q 500,320 280,230" fill="none" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+              <path class="flight-line" id="lineBuenos" d="M 680,450 Q 450,350 280,230" fill="none" stroke="url(#lineGrad)" stroke-width="2" stroke-dasharray="1000" stroke-dashoffset="1000"/>
+
+              <!-- Origin Pins -->
+              <g class="map-pin origin" transform="translate(800, 160)" role="img" aria-label="Origin Paris and Manchester">
+                <circle cx="0" cy="0" r="4" fill="var(--cyan)"/>
+                <circle cx="0" cy="0" r="10" fill="none" stroke="var(--cyan)" stroke-width="1" class="pulsing-pin"/>
+                <text x="10" y="4" class="pin-label">PARIS/MANCHESTER</text>
+              </g>
+              <g class="map-pin origin" transform="translate(780, 190)" role="img" aria-label="Origin Madrid and Barcelona">
+                <circle cx="0" cy="0" r="4" fill="var(--cyan)"/>
+                <circle cx="0" cy="0" r="10" fill="none" stroke="var(--cyan)" stroke-width="1" class="pulsing-pin"/>
+                <text x="10" y="4" class="pin-label">MADRID/BARCELONA</text>
+              </g>
+              <g class="map-pin origin" transform="translate(720, 410)" role="img" aria-label="Origin Rio de Janeiro">
+                <circle cx="0" cy="0" r="4" fill="var(--cyan)"/>
+                <circle cx="0" cy="0" r="10" fill="none" stroke="var(--cyan)" stroke-width="1" class="pulsing-pin"/>
+                <text x="10" y="4" class="pin-label">RIO DE JANEIRO</text>
+              </g>
+              <g class="map-pin origin" transform="translate(680, 450)" role="img" aria-label="Origin Buenos Aires">
+                <circle cx="0" cy="0" r="4" fill="var(--cyan)"/>
+                <circle cx="0" cy="0" r="10" fill="none" stroke="var(--cyan)" stroke-width="1" class="pulsing-pin"/>
+                <text x="10" y="4" class="pin-label">BUENOS AIRES</text>
+              </g>
+
+              <!-- Host Pins -->
+              <g class="map-pin host" transform="translate(180, 220)" data-stadium="SoFi Stadium" data-capacity="70,240" data-matches="8 Matches" data-city="LOS ANGELES" role="button" aria-haspopup="dialog" aria-label="Host Los Angeles, SoFi Stadium details" tabindex="0">
+                <circle cx="0" cy="0" r="6" fill="var(--gold)" filter="url(#glowFilter)"/>
+                <circle cx="0" cy="0" r="15" fill="none" stroke="var(--gold)" stroke-width="1.5" class="pulsing-pin"/>
+                <text x="-15" y="-12" class="pin-label host-label">LOS ANGELES</text>
+              </g>
+              <g class="map-pin host" transform="translate(300, 180)" data-stadium="MetLife Stadium" data-capacity="82,500" data-matches="Final Match & 7 others" data-city="NEW YORK / NEW JERSEY" role="button" aria-haspopup="dialog" aria-label="Host New York and New Jersey, MetLife Stadium details" tabindex="0">
+                <circle cx="0" cy="0" r="6" fill="var(--gold)" filter="url(#glowFilter)"/>
+                <circle cx="0" cy="0" r="15" fill="none" stroke="var(--gold)" stroke-width="1.5" class="pulsing-pin"/>
+                <text x="12" y="-5" class="pin-label host-label">NEW YORK / NJ</text>
+              </g>
+              <g class="map-pin host" transform="translate(220, 280)" data-stadium="Estadio Azteca" data-capacity="87,523" data-matches="Opening Match & 4 others" data-city="MEXICO CITY" role="button" aria-haspopup="dialog" aria-label="Host Mexico City, Estadio Azteca details" tabindex="0">
+                <circle cx="0" cy="0" r="6" fill="var(--gold)" filter="url(#glowFilter)"/>
+                <circle cx="0" cy="0" r="15" fill="none" stroke="var(--gold)" stroke-width="1.5" class="pulsing-pin"/>
+                <text x="12" y="10" class="pin-label host-label">MEXICO CITY</text>
+              </g>
+              <g class="map-pin host" transform="translate(150, 140)" data-stadium="BC Place" data-capacity="54,500" data-matches="7 Matches" data-city="VANCOUVER" role="button" aria-haspopup="dialog" aria-label="Host Vancouver, BC Place details" tabindex="0">
+                <circle cx="0" cy="0" r="6" fill="var(--gold)" filter="url(#glowFilter)"/>
+                <circle cx="0" cy="0" r="15" fill="none" stroke="var(--gold)" stroke-width="1.5" class="pulsing-pin"/>
+                <text x="-15" y="-12" class="pin-label host-label">VANCOUVER</text>
+              </g>
+              <g class="map-pin host" transform="translate(280, 160)" data-stadium="BMO Field" data-capacity="45,736" data-matches="6 Matches" data-city="TORONTO" role="button" aria-haspopup="dialog" aria-label="Host Toronto, BMO Field details" tabindex="0">
+                <circle cx="0" cy="0" r="6" fill="var(--gold)" filter="url(#glowFilter)"/>
+                <circle cx="0" cy="0" r="15" fill="none" stroke="var(--gold)" stroke-width="1.5" class="pulsing-pin"/>
+                <text x="12" y="-5" class="pin-label host-label">TORONTO</text>
+              </g>
+            </svg>
+            
+            <!-- Floating Stadium Stats Overlay -->
+            <div class="stadium-overlay-card" id="stadiumOverlayCard" role="dialog" aria-label="Stadium capacity stats and match details">
+              <span class="stadium-city">NEW YORK</span>
+              <h4 class="stadium-name">METLIFE STADIUM</h4>
+              <div class="stadium-details-grid">
+                <div>
+                  <span class="detail-label" data-i18n="map.capacity">CAPACITY</span>
+                  <span class="detail-value stadium-capacity">82,500</span>
+                </div>
+                <div>
+                  <span class="detail-label" data-i18n="map.matches">MATCHES</span>
+                  <span class="detail-value stadium-matches">8 matches</span>
+                </div>
+              </div>
+              <div class="scanlines" aria-hidden="true"></div>
+            </div>
+            
+          </div>
+          
+          <div class="map-text-content">
+            <h3 data-i18n="map.heading">UNITED BY FOOTBALL</h3>
+            <p data-i18n="map.desc">Three host nations. 16 iconic cities. 48 teams. The largest tournament in history, bridging oceans and continents to crown the ultimate champion.</p>
+            <div class="nations-badges">
+              <span class="nation-badge usa" data-i18n="map.badge1">UNITED STATES</span>
+              <span class="nation-badge canada" data-i18n="map.badge2">CANADA</span>
+              <span class="nation-badge mexico" data-i18n="map.badge3">MEXICO</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FOOTER SECTION ================= -->
+      <footer class="cinematic-footer" role="contentinfo">
+        <div class="footer-glow" aria-hidden="true"></div>
+        <div class="footer-content">
+          <h2 class="footer-title" data-i18n="footer.title">ARE YOU READY FOR HISTORY?</h2>
+          <p class="footer-sub" data-i18n="footer.desc">The countdown to the largest sporting spectacle has begun. Witness the legends rise.</p>
+          
+          <div class="footer-cta-wrapper">
+            <button class="btn-magnetic btn-gold" id="footerCta" aria-label="Explore World Cup tournament stations">
+              <span class="btn-text" data-i18n="footer.cta">EXPLORE STATIONS</span>
+              <span class="btn-glow"></span>
+            </button>
+          </div>
+
+          <div class="footer-meta">
+            <span class="copy-text">© 2026 FIFA Cinematic Web Experience. Designed for recruiters and fans.</span>
+            <div class="social-links" aria-label="Social media connections">
+              <a href="#" class="social-link" aria-label="Follow us on Instagram">IG</a>
+              <a href="#" class="social-link" aria-label="Follow us on Twitter">TW</a>
+              <a href="#" class="social-link" aria-label="Follow us on YouTube">YT</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
