@@ -346,7 +346,7 @@ a {
 }
 
 /* ==========================================================================
-   CUSTOM CURSOR
+   WORLD CUP QUANTUM CURSOR — holographic sports HUD
    ========================================================================== */
 /* Hide normal cursor for mouse users only (applied dynamically via JS class) */
 body.has-mouse {
@@ -367,7 +367,7 @@ body.has-mouse .btn-magnetic {
   height: 100%;
   pointer-events: none;
   z-index: 99999;
-  opacity: 0; /* revealed once mouse is detected */
+  opacity: 0;
   transition: opacity 0.3s ease;
 }
 
@@ -377,75 +377,225 @@ body.has-mouse .custom-cursor {
 
 /* Hide custom cursor on touch devices */
 html.is-touch .custom-cursor,
+html.is-touch .cursor-center,
 html.is-touch .cursor-ring,
-html.is-touch .cursor-dot,
-html.is-touch .cursor-label {
+html.is-touch .cursor-trail,
+html.is-touch .cursor-label,
+html.is-touch .orbital-lines,
+html.is-touch #cursorParticles {
   display: none !important;
 }
 html.is-touch body.has-mouse { cursor: auto; }
 
+/* ── Center Luminous Dot ── */
+.cursor-center {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00d4ff;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 6px #00d4ff,
+    0 0 20px #00d4ff,
+    0 0 50px rgba(0, 212, 255, 0.4);
+  will-change: transform;
+  transition: background 0.4s ease, box-shadow 0.4s ease, width 0.3s ease, height 0.3s ease;
+  z-index: 3;
+}
+
+/* ── Orbital Ring ── */
 .cursor-ring {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
   will-change: transform;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.cursor-dot {
+.cursor-ring::before {
+  content: '';
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background-color: var(--gold);
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: background-color 0.3s ease, transform 0.1s ease-out;
-  will-change: transform;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
 }
 
+/* ── Cursor Trail (outer glow gradient) ── */
+.cursor-trail {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.4s ease;
+}
+
+/* ── Stadium Orbital Lines ── */
+.orbital-lines {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ol {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transform-origin: center;
+}
+
+.ol-1 { transform: translate(-50%, -50%) rotate(0deg); }
+.ol-2 { transform: translate(-50%, -50%) rotate(45deg); }
+.ol-3 { transform: translate(-50%, -50%) rotate(90deg); }
+.ol-4 { transform: translate(-50%, -50%) rotate(135deg); }
+
+/* ── Cursor Particles Canvas ── */
+#cursorParticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Cursor Label ── */
 .cursor-label {
   position: absolute;
   transform: translate(-50%, -50%);
   font-family: var(--font-title);
   font-size: var(--text-2xs);
   letter-spacing: 0.15em;
-  color: var(--background);
+  color: #fff;
   font-weight: bold;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
-  z-index: 10;
+  z-index: 4;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
-/* Hover States */
+/* ── Hover States ── */
+
+/* Button hover: expansion */
+.custom-cursor.hovered .cursor-center {
+  width: 16px;
+  height: 16px;
+}
+
 .custom-cursor.hovered .cursor-ring {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-color: var(--gold);
-  background-color: rgba(247, 201, 72, 0.1);
-  backdrop-filter: blur(2px);
+  box-shadow: 0 0 20px rgba(247, 201, 72, 0.2);
 }
 
-.custom-cursor.hovered .cursor-dot {
-  background-color: var(--gold-glow);
+.custom-cursor.hovered .cursor-ring::before {
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold-glow);
 }
 
+.custom-cursor.hovered .cursor-trail {
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(247, 201, 72, 0.12) 0%, transparent 70%);
+}
+
+/* ── View mode (map pins) ── */
 .custom-cursor.view-mode .cursor-ring {
   width: 80px;
   height: 80px;
   border-color: var(--cyan);
-  background-color: rgba(0, 212, 255, 0.85);
+  background-color: rgba(0, 212, 255, 0.08);
 }
 
-.custom-cursor.view-mode .cursor-dot {
-  opacity: 0;
+.custom-cursor.view-mode .cursor-center {
+  opacity: 0.3;
 }
 
 .custom-cursor.view-mode .cursor-label {
   opacity: 1;
+}
+
+/* ── Penalty focus mode ── */
+.custom-cursor.penalty .cursor-ring {
+  width: 16px;
+  height: 16px;
+  border-color: var(--gold);
+  border-width: 2px;
+}
+
+.custom-cursor.penalty .cursor-center {
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  box-shadow: 0 0 15px var(--gold-glow);
+}
+
+.custom-cursor.penalty .cursor-trail {
+  opacity: 0.3;
+}
+
+.custom-cursor.penalty .orbital-lines {
+  opacity: 0.2;
+}
+
+/* ── Goal explosion flash ── */
+.custom-cursor.goal-flash .cursor-center {
+  box-shadow:
+    0 0 30px var(--gold),
+    0 0 80px var(--gold-glow),
+    0 0 150px rgba(247, 201, 72, 0.3);
+}
+
+.custom-cursor.goal-flash .cursor-trail {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(247, 201, 72, 0.25) 0%, transparent 70%);
+}
+
+/* ── Trophy mode ── */
+.custom-cursor.trophy .cursor-center {
+  width: 0;
+  height: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.custom-cursor.trophy .cursor-ring {
+  width: 50px;
+  height: 50px;
+  border-color: var(--gold);
+  box-shadow: 0 0 40px rgba(247, 201, 72, 0.3), inset 0 0 20px rgba(247, 201, 72, 0.1);
+}
+
+.custom-cursor.trophy .cursor-label {
+  opacity: 1;
+  font-size: 1.2rem;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(247, 201, 72, 0.6), 0 0 60px rgba(247, 201, 72, 0.3);
 }
 
 /* ==========================================================================
@@ -1414,12 +1564,12 @@ html.is-touch body.has-mouse { cursor: auto; }
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+  padding: 50px var(--space-xl);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  min-height: 550px;
+  min-height: 650px;
   perspective: 1000px;
   transform-style: preserve-3d;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
@@ -1451,7 +1601,7 @@ html.is-touch body.has-mouse { cursor: auto; }
   position: absolute;
   right: -5%;
   top: 0;
-  width: 55%;
+  width: 58%;
   height: 100%;
   display: flex;
   align-items: flex-end;
@@ -1462,7 +1612,7 @@ html.is-touch body.has-mouse { cursor: auto; }
 }
 
 .duel-player-image {
-  height: 90%;
+  height: 95%;
   width: auto;
   object-fit: contain;
   z-index: 2;
@@ -1471,7 +1621,7 @@ html.is-touch body.has-mouse { cursor: auto; }
 
 .duel-glow-copy {
   position: absolute;
-  height: 90%;
+  height: 95%;
   width: auto;
   object-fit: contain;
   z-index: 1;
@@ -1483,20 +1633,28 @@ html.is-touch body.has-mouse { cursor: auto; }
   filter: blur(35px) drop-shadow(0 0 30px rgba(0, 212, 255, 0.5));
 }
 
+.messi-column .duel-player-image {
+  filter: brightness(0.55) drop-shadow(-10px 10px 20px rgba(0,0,0,0.8));
+}
+
 .ronaldo-column .duel-glow-copy {
   filter: blur(35px) drop-shadow(0 0 30px rgba(255, 62, 62, 0.5));
+}
+
+.ronaldo-column .duel-player-image {
+  filter: brightness(0.55) drop-shadow(-10px 10px 20px rgba(0,0,0,0.8));
 }
 
 .duel-content {
   position: relative;
   z-index: 5;
-  max-width: 55%;
+  max-width: 58%;
   transform: translateZ(100px);
 }
 
 .duel-content .country {
   display: block;
-  font-size: var(--text-2xs);
+  font-size: var(--text-xs);
   letter-spacing: 0.25em;
   font-weight: 800;
   color: var(--text-muted);
@@ -1505,10 +1663,10 @@ html.is-touch body.has-mouse { cursor: auto; }
 
 .duel-content h3 {
   font-family: var(--font-title);
-  font-size: var(--text-4xl);
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
   line-height: 0.9;
   letter-spacing: -0.01em;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .duel-content h3 span.gold-text { color: var(--cyan); text-shadow: 0 0 15px rgba(0, 212, 255, 0.3); }
@@ -2082,7 +2240,7 @@ html.is-touch body.has-mouse { cursor: auto; }
     gap: var(--space-md);
   }
   .duel-column {
-    min-height: 480px;
+    min-height: 520px;
   }
   .map-layout {
     grid-template-columns: 1fr;
@@ -2169,6 +2327,207 @@ html.is-touch body.has-mouse { cursor: auto; }
     flex-direction: column;
     gap: 16px;
     text-align: center;
+  }
+}
+
+/* ── Phone (<480px): compact player slides, readable text ── */
+@media (max-width: 480px) {
+  .player-slide {
+    grid-template-columns: 1fr;
+    grid-template-rows: 35vh auto;
+    gap: 0;
+    padding: var(--header-height) 4vw 4vw 4vw;
+  }
+
+  .player-wrapper {
+    height: 100%;
+    width: 100%;
+    align-items: flex-end;
+  }
+
+  .player-image,
+  .glow-copy {
+    height: 90%;
+    bottom: 0;
+  }
+
+  .player-content {
+    padding-top: 0;
+    align-self: end;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    padding-right: 0;
+  }
+
+  .player-slide .country {
+    font-size: 0.55rem;
+    margin-bottom: 2px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .player-name {
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .player-desc {
+    font-size: 0.6rem;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 6px;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  .hud-stats-card {
+    position: relative;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 4px;
+    transform: none;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+
+  .hud-header {
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+  }
+
+  .hud-title {
+    font-size: 0.5rem;
+  }
+
+  .hud-badge {
+    font-size: 0.5rem;
+    padding: 2px 6px;
+  }
+
+  .hud-stats-list {
+    gap: 3px;
+    margin-bottom: 4px;
+  }
+
+  .hud-stat {
+    grid-template-columns: 40px 1fr 18px;
+    gap: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .stat-name {
+    font-size: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .stat-bar-container {
+    margin-left: 0;
+    height: 3px;
+  }
+
+  .stat-val {
+    font-size: 0.5rem;
+  }
+
+  .hud-footer {
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .stat-pill {
+    font-size: 0.45rem;
+    padding: 2px 6px;
+    white-space: nowrap;
+  }
+
+  /* ── Hero ── */
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  /* ── Duel section ── */
+  .duel-content {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    padding-right: 0;
+  }
+
+  .duel-content .country {
+    font-size: 0.55rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .duel-content h3 {
+    font-size: 1.4rem;
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .duel-content p {
+    font-size: 0.6rem;
+    line-height: 1.4;
+    margin-bottom: var(--space-sm);
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    box-sizing: border-box;
+  }
+
+  .duel-player-wrapper {
+    opacity: 0.15;
+    width: 100%;
+  }
+
+  .duel-column {
+    min-height: 380px;
+    padding: 24px var(--space-sm);
+    box-sizing: border-box;
+  }
+
+  .duel-stats {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 8px;
+  }
+
+  .duel-stat-row {
+    padding-bottom: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .duel-stat-row span {
+    font-size: 0.5rem;
+  }
+
+  .duel-stat-row strong {
+    font-size: var(--text-base);
   }
 }
 

@@ -15,19 +15,10 @@ export function initSlider() {
 
   const SLIDE_COUNT = slides.length;
   let currentIndex  = 0;
-  const cursor      = document.querySelector('.custom-cursor');
 
-  // Resolve a CSS custom property value (e.g. '--cyan' → '#00d4ff')
-  function resolveColor(propName) {
-    return getComputedStyle(document.documentElement).getPropertyValue(propName).trim();
-  }
-
-  // Update the cursor ring/dot colour to match the active player's accent
-  function syncCursorColor(slide) {
-    if (!cursor) return;
-    const isPlayer = slide?.classList.contains('player-slide');
-    const color    = isPlayer ? resolveColor(slide.getAttribute('data-color')) : '#f7c948';
-    cursor.style.setProperty('--gold', color || '#f7c948');
+  function dispatchSlideEvent(slide) {
+    const player = slide?.getAttribute('data-player') || null;
+    window.dispatchEvent(new CustomEvent('cursor:slidechange', { detail: { player } }));
   }
 
   // ── ARIA setup for carousel — HTML already has role="group" aria-roledescription="slide"
@@ -98,9 +89,8 @@ export function initSlider() {
     // Focus management
     slides[idx]?.focus({ preventScroll: true });
 
-    // Animate stats + cursor colour for the target slide
     animateStatBars(slides[idx]);
-    syncCursorColor(slides[idx]);
+    dispatchSlideEvent(slides[idx]);
   }
 
   // ── Click to navigate
@@ -161,7 +151,7 @@ export function initSlider() {
             s.setAttribute('tabindex', active ? '0' : '-1');
           });
           animateStatBars(slides[targetIdx]);
-          syncCursorColor(slides[targetIdx]);
+          dispatchSlideEvent(slides[targetIdx]);
         }
       },
     },
@@ -169,7 +159,7 @@ export function initSlider() {
 
   // ── Initial state: animate first card stats + cursor colour
   animateStatBars(slides[0]);
-  syncCursorColor(slides[0]);
+  dispatchSlideEvent(slides[0]);
 
   if (!prefersReduced) {
     gsap.from(track, {
