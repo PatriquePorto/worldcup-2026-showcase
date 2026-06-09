@@ -1,84 +1,118 @@
-# FIFA World Cup 2026 — The Next Legends
-
-Experiência web cinematográfica e interativa inspirada na Copa do Mundo FIFA 2026. Combina estética de landing pages Awwwards/FWA com design dinâmico de showcases esportivos e elementos espaciais.
-
----
-
-## Stack
-
-- **Estrutura**: HTML5 Semântico (WCAG 2.2 AA)
-- **Estilização**: CSS3 Moderno (Custom Properties, clamp fluid scale, glassmorphism)
-- **Lógica**: JavaScript ES6+ Modular (18 módulos)
-- **Animações**: GSAP 3 + ScrollTrigger
-- **Scroll**: Lenis (Studio Freight)
-- **Canvas**: HTML5 Canvas 2D (partículas)
-- **Áudio**: Web Audio API (sintetizador procedural)
-- **Bundler**: Vite 5
-
----
-
-## Recursos
-
-### Preloader Cinematográfico
-Rastreamento real de assets (8 imagens), barra de progresso com glow, scanlines, bypass após 6s em rede lenta.
-
-### Hero Section
-Background de estádio com overlay radial, spotlight dourado/cyan, ghost number "2026" gigante ao fundo, tagline com deco lines, badge "16 CITIES · 3 NATIONS · ONE STAGE", contagem regressiva para 11/06/2026. Revelação com timeline GSAP (cada caractere animado individualmente).
-
-### Slider de Jogadores (Horizontal ScrollTrigger)
-5 jogadores em tela cheia com pinning horizontal, parallax multicamadas, HUD de estatísticas com count-up animado e barras de progresso, cores dinâmicas por jogador (cyan, green, gold, red, cyan-glow).
-
-### Efeito 3D Tilt
-Parallax 3D com mousemove throttled via rAF. Profundidade em camadas (background → glow → player image → HUD). Desligado em touch / reduced-motion.
-
-### The Last Dance (Messi × Ronaldo)
-Card duplo com fotos reais (Messi e Cristiano Ronaldo), glow azul/vermelho, estatísticas对比, backdrop-filter glass.
-
-### Road to Glory (Mapa Interativo)
-SVG com linhas de voo animadas via ScrollTrigger, 5 pinos de cidades-sede com popup de capacidade/partidas, bandeiras das 3 nações anfitriãs.
-
-### Sintetizador de Estádio (Web Audio API)
-Sub-bass + ruído filtrado. Sem arquivos de áudio externos. Toggle "STADIUM SOUND".
-
-### Tradução EN / PT-BR
-Toggle no header com dicionário completo (~90 chaves). Detecta idioma do navegador. Persiste escolha em localStorage. Herói re-splitta ao trocar idioma.
-
-### Acessibilidade
-- Skip link
-- `prefers-reduced-motion` (desliga partículas, cursor customizado, parallax, scanlines)
-- Touch detection (esconde cursor customizado)
-- `focus-visible` ring
-- ARIA labels em todos os cards e botões
-- Atributos `aria-hidden` em elementos decorativos
+<div align="center">
+  <br/>
+  <h1>🏆 FIFA WORLD CUP 2026</h1>
+  <h3>THE NEXT LEGENDS</h3>
+  <br/>
+  <p>
+    <strong>Cinematic · Interactive · Immersive</strong>
+  </p>
+  <p>
+    A premium, multi-layered web experience showcasing the elite talents set to define the 2026 FIFA World Cup across USA, Canada, and Mexico.
+  </p>
+  <br/>
+  <p>
+    <a href="#-features">Features</a> •
+    <a href="#-stack">Stack</a> •
+    <a href="#-modules">Modules</a> •
+    <a href="#-structure">Structure</a> •
+    <a href="#-getting-started">Getting Started</a>
+  </p>
+  <br/>
+</div>
 
 ---
 
-## Estrutura
+## ✦ Features
+
+### 🎬 Cinematic Preloader
+Asset tracking with real progress, glowing sweep bar, retro scanlines, and a bypass for slow networks. Sets the stage for a grand reveal.
+
+### 🌆 Hero Section
+Full-viewport stadium background with radial spotlight, floating ghost "2026", gold-tinted tagline with decorative lines, tournament badge, and a **live countdown** to kickoff — June 11, 2026.
+
+### 🏃 Player Carousel (GSAP Horizontal Scroll)
+Five rising stars — **Mbappé**, **Vinícius Júnior**, **Bellingham**, **Yamal**, **Haaland** — each in a full-screen slide with:
+- Multi-layer 3D parallax (stadium bg → player cutout → HUD)
+- Animated stat bars with count-up (GSAP ScrollTrigger)
+- Per-player accent colors (cyan · green · gold · red · cyan-glow)
+- Keyboard navigation + cursor color sync
+
+### 🔥 3D Tilt Parallax
+Mouse-driven perspective shift with throttled rAF. Layers move at different depths (`translateZ`). Automatically disabled on touch devices and reduced motion.
+
+### ⚔️ The Last Dance — Messi × Ronaldo
+Side-by-side cards with actual player images, colored glows (sky blue / red), career stats, and a cinematic "duel" layout.
+
+### 🗺️ Road to Glory — Interactive Map
+SVG world map with animated flight paths (ScrollTrigger), 5 host city pins with stadium popups (capacity, matches), and host nation badges (USA · Canada · Mexico).
+
+### 🔊 Stadium Audio
+Real stadium ambient track — loops seamlessly, loads on first click. Toggle on/off from the floating button.
+
+### 🌐 Bilingual (EN / PT-BR)
+Full translation toggle in the header. Detects browser language, persists choice in localStorage. Covers ~90 keys across all sections, including meta tags and player stats.
+
+### ♿ Accessibility
+- WCAG 2.2 AA skip link
+- `prefers-reduced-motion` (disables particles, cursor, parallax, scanlines)
+- Touch detection (hides custom cursor)
+- `focus-visible` rings, ARIA labels, semantic HTML
+
+---
+
+## ✦ Stack
+
+<div align="center">
+
+| | |
+|---|---|
+| **Core** | HTML5 · CSS3 (Custom Properties, clamp fluid scale) · Vanilla JS (ES6+) |
+| **Animation** | GSAP 3 + ScrollTrigger |
+| **Smooth Scroll** | Lenis (Studio Freight) |
+| **Particles** | HTML5 Canvas 2D |
+| **Audio** | Web Audio API (`.mp3` playback) |
+| **Build** | Vite 5 · 19 modules · ~163KB JS + 34KB CSS (gzip ~60KB + 7KB) |
+
+</div>
+
+---
+
+## ✦ Modules
+
+| Module | Responsibility |
+|---|---|
+| `preloader.js` | Asset loading, progress bar, hero title split, reveal timeline |
+| `countdown.js` | Live countdown to June 11, 2026 |
+| `cursor.js` | Magnetic custom cursor with ring/dot/hover states |
+| `particles.js` | Canvas-based rising particle system (hero bg) |
+| `slider.js` | Horizontal ScrollTrigger carousel, stat bars count-up, keyboard nav |
+| `tilt.js` | 3D mouse-driven parallax on player slides |
+| `map.js` | SVG flight line animation, host city popups |
+| `audio.js` | Stadium ambient .mp3 player with toggle |
+| `translator.js` | EN/PT-BR dictionary + DOM sync |
+
+---
+
+## ✦ Structure
 
 ```
 world-cup-2026/
-├── public/
-│   └── assets/
-│       ├── backgrounds/
-│       │   └── stadium-bg.png
-│       └── players/
-│           ├── mbappe.png
-│           ├── vini-jr.png
-│           ├── bellingham.png
-│           ├── yamal.png
-│           ├── haaland.png
-│           ├── messi.png
-│           └── cristiano.png
+├── public/assets/
+│   ├── audio/
+│   │   └── stadium-roar-concert.mp3
+│   ├── backgrounds/
+│   │   └── stadium-bg.png
+│   └── players/
+│       ├── mbappe.png        ├── vini-jr.png
+│       ├── bellingham.png    ├── yamal.png
+│       ├── haaland.png       ├── messi.png
+│       └── cristiano.png
 ├── src/
 │   ├── modules/
-│   │   ├── audio.js
-│   │   ├── countdown.js
-│   │   ├── cursor.js
-│   │   ├── map.js
-│   │   ├── particles.js
-│   │   ├── preloader.js
-│   │   ├── slider.js
-│   │   ├── tilt.js
+│   │   ├── audio.js          ├── countdown.js
+│   │   ├── cursor.js         ├── map.js
+│   │   ├── particles.js      ├── preloader.js
+│   │   ├── slider.js         ├── tilt.js
 │   │   └── translator.js
 │   ├── style.css
 │   └── main.js
@@ -91,12 +125,31 @@ world-cup-2026/
 
 ---
 
-## Como Rodar
+## ✦ Getting Started
 
 ```bash
+# Install dependencies
 npm install
-npm run dev     # http://localhost:5173
-npm run build   # → dist/
+
+# Start dev server (http://localhost:5173)
+npm run dev
+
+# Production build → dist/
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-Build atual: **19 módulos**, ~163KB JS + 34KB CSS (gzip ~60KB + 7KB).
+### Requirements
+- Node.js 18+
+- npm (included)
+
+---
+
+<div align="center">
+  <br/>
+  <sub>Built with ❤️ for recruiters, designers, and football fans.</sub>
+  <br/>
+  <sub>© 2026 — FIFA Cinematic Web Experience</sub>
+</div>
