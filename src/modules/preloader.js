@@ -53,6 +53,7 @@ export function initPreloader(onCompleteCallback) {
     '/assets/players/haaland.webp',
     '/assets/players/messi.webp',
     '/assets/players/cristiano.webp',
+    '/assets/backgrounds/trophy.webp',
   ];
 
   let loaded = 0;
